@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe7">
+  <meta name="description" content="Tymii Studio — editorial graphics, magazines, posters and creative design for Roblox communities.">
+  <title>Tymii Studio — Editorial Graphic Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4efe7;
+      --ink: #24211e;
+      --muted: #756b60;
+      --beige: #d8c9b8;
+      --line: rgba(36,33,30,.18);
+      --white: #fbf8f3;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1180px, calc(100% - 44px)); margin: auto; }
+    .topline { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 10px; letter-spacing: .17em; text-transform: uppercase; display:flex; justify-content:space-between; gap:20px; color:var(--muted); }
+    header { border-bottom: 1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; padding: 24px 0; }
+    .brand { font-family:var(--serif); font-size: clamp(22px, 3vw, 32px); letter-spacing:-.045em; white-space:nowrap; }
+    .brand span { font-style:italic; font-weight:400; }
+    .navlinks { display:flex; align-items:center; gap:26px; font-size:11px; text-transform:uppercase; letter-spacing:.12em; }
+    .navlinks a:hover, .text-link:hover { opacity:.55; }
+    .nav-cta { border:1px solid var(--ink); padding:12px 15px; }
+    .hero { padding: 72px 0 64px; display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; gap:58px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-size:10px; color:var(--muted); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-family:var(--serif); font-size:clamp(54px, 8.2vw, 106px); line-height:.94; font-weight:400; letter-spacing:-.065em; margin:22px 0 25px; }
+    h1 em { font-weight:400; }
+    .hero-copy { max-width:480px; color:var(--muted); font-size:14px; line-height:1.9; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .button { display:inline-flex; justify-content:center; align-items:center; padding:15px 19px; border:1px solid var(--ink); font-size:10px; text-transform:uppercase; letter-spacing:.13em; transition:.2s ease; }
+    .button.primary { background:var(--ink); color:var(--paper); }
+    .button:hover { transform:translateY(-2px); }
+    .hero-art { min-height:460px; position:relative; background:#d9c9b8; padding:26px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero-art:before { content:""; position:absolute; inset:15px; border:1px solid rgba(36,33,30,.35); pointer-events:none; }
+    .hero-art-inner { position:relative; z-index:1; width:100%; max-width:360px; text-align:center; }
+    .hero-art .smallcap { font-size:9px; letter-spacing:.25em; text-transform:uppercase; }
+    .hero-art h2 { font:400 clamp(38px, 5vw, 62px)/.98 var(--serif); margin:22px 0; letter-spacing:-.05em; }
+    .hero-art h2 em { display:block; }
+    .hero-art .rule { width:44px; height:1px; background:var(--ink); margin:20px auto; }
+    .hero-art .art-bottom { display:flex; justify-content:space-between; font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+    .star { position:absolute; font-family:var(--serif); font-size:100px; opacity:.16; }
+    .star.one { top:14px; right:24px; } .star.two { bottom:5px; left:15px; font-size:70px; }
+    .ticker { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:17px 0; overflow:hidden; white-space:nowrap; font:italic 17px var(--serif); color:var(--muted); text-align:center; }
+    section { padding:80px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:34px; }
+    .section-head h2 { font:400 clamp(38px, 5vw, 62px)/1 var(--serif); letter-spacing:-.05em; margin:12px 0 0; }
+    .section-head p { max-width:330px; color:var(--muted); font-size:12px; line-height:1.8; margin:0; }
+    .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .work-card { min-width:0; }
+    .work-image { min-height:290px; aspect-ratio: .82; background:#e1d5c7; padding:20px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .work-image.dark { background:#282522; color:#f4efe7; }
+    .work-image.rose { background:#d8c3bd; }
+    .work-image.sand { background:#e8dfd3; }
+    .cover { width:100%; height:100%; min-height:250px; border:1px solid currentColor; padding:18px 15px; display:flex; flex-direction:column; justify-content:space-between; text-align:center; }
+    .cover .cover-kicker { font-size:8px; text-transform:uppercase; letter-spacing:.18em; }
+    .cover h3 { font:400 clamp(27px,3.4vw,43px)/.95 var(--serif); letter-spacing:-.06em; margin:18px 0; }
+    .cover h3 em { display:block; }
+    .cover .cover-caption { font-size:8px; line-height:1.7; letter-spacing:.08em; text-transform:uppercase; }
+    .work-meta { padding:14px 2px 0; display:flex; justify-content:space-between; gap:12px; }
+    .work-meta h3 { font:400 19px var(--serif); margin:0; }
+    .work-meta span { color:var(--muted); font-size:9px; text-transform:uppercase; letter-spacing:.1em; padding-top:5px; }
+    .note { margin-top:24px; font-size:11px; color:var(--muted); line-height:1.7; }
+    .services { background:#e8dfd3; }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+    .service { padding:26px 24px 10px 0; border-right:1px solid var(--line); margin-right:24px; }
+    .service:last-child { border-right:0; margin-right:0; }
+    .service .number { font-size:10px; color:var(--muted); letter-spacing:.16em; }
+    .service h3 { font:400 28px var(--serif); margin:28px 0 12px; }
+    .service p { color:var(--muted); font-size:12px; line-height:1.8; max-width:280px; }
+    .about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
+    .about-grid h2 { font:400 clamp(38px,5vw,60px)/1 var(--serif); letter-spacing:-.05em; margin:14px 0 0; }
+    .about-copy { max-width:620px; font-size:14px; line-height:2; color:var(--muted); }
+    .about-copy strong { color:var(--ink); font-weight:500; }
+    .contact { background:var(--ink); color:var(--paper); }
+    .contact-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:end; }
+    .contact h2 { font:400 clamp(48px,7vw,88px)/.95 var(--serif); letter-spacing:-.06em; margin:16px 0 20px; }
+    .contact p { color:#c6bcb0; font-size:13px; line-height:1.8; max-width:470px; }
+    .contact .button { border-color:var(--paper); }
+    .contact .button.primary { background:var(--paper); color:var(--ink); }
+    footer { padding:22px 0; display:flex; justify-content:space-between; gap:20px; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+    .footer-brand { font:italic 20px var(--serif); text-transform:none; letter-spacing:0; color:var(--ink); }
+    @media(max-width:760px) {
+      .wrap { width:min(100% - 30px, 600px); }
+      .topline { font-size:8px; }
+      .nav { align-items:flex-start; flex-direction:column; gap:18px; padding:19px 0; }
+      .navlinks { width:100%; gap:15px; flex-wrap:wrap; font-size:9px; }
+      .nav-cta { padding:9px 11px; }
+      .hero { padding:45px 0; grid-template-columns:1fr; gap:30px; }
+      .hero-art { min-height:380px; }
+      section { padding:58px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; }
+      .work-grid { grid-template-columns:1fr 1fr; gap:14px; }
+      .work-image { min-height:230px; padding:13px; }
+      .cover { min-height:205px; padding:12px 8px; }
+      .cover h3 { font-size:30px; }
+      .work-meta { flex-direction:column; gap:3px; }
+      .work-meta span { padding:0; }
+      .service-grid { grid-template-columns:1fr; }
+      .service { border-right:0; border-bottom:1px solid var(--line); margin:0; padding:23px 0; }
+      .service h3 { margin:13px 0 8px; }
+      .about-grid,.contact-grid { grid-template-columns:1fr; gap:25px; }
+      footer { flex-direction:column; }
+    }
+    @media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto} *,*:before,*:after {transition:none!important} }
+  </style>
+</head>
+<body>
+  <div class="topline wrap">
+    <span>Independent creative studio</span>
+    <span>Editorial · Roblox · Digital design</span>
+  </div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Tymii Studio home">tymii <span>studio</span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#work">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Let’s talk ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <div>
+        <div class="eyebrow">Graphic design for digital worlds</div>
+        <h1>Visuals with<br><em>a point of view.</em></h1>
+        <p class="hero-copy">Tymii Studio creates editorial-inspired graphics for Roblox communities, pageants, and creative projects. Thoughtful typography, considered layouts, and a little editorial magic.</p>
+        <div class="actions">
+          <a class="button primary" href="#work">Explore the portfolio</a>
+          <a class="button" href="#contact">Work with me ↗</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Editorial typographic artwork">
+        <span class="star one">✳</span><span class="star two">✳</span>
+        <div class="hero-art-inner">
+          <div class="smallcap">The art of visual storytelling</div>
+          <div class="rule"></div>
+          <h2>Design<br><em>in every detail.</em></h2>
+          <div class="rule"></div>
+          <div class="art-bottom"><span>Tymii Studio</span><span>Est. 2026</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">A creative eye · Editorial soul · Digital possibilities ✳ A creative eye · Editorial soul · Digital possibilities ✳</div>
+
+    <section class="wrap" id="work">
+      <div class="section-head">
+        <div><div class="eyebrow">Selected concepts · 01—03</div><h2>The portfolio</h2></div>
+        <p>A selection of sample concepts exploring pageant announcements, magazine covers, and editorial community design.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-image dark">
+            <div class="cover">
+              <div class="cover-kicker">The Royal Times · Special Edition</div>
+              <h3>THE<br><em>ROYAL</em><br>EDIT</h3>
+              <div class="cover-caption">An editorial concept<br>for a world of crowns</div>
+            </div>
+          </div>
+          <div class="work-meta"><h3>The Royal Edit</h3><span>Magazine concept</span></div>
+        </article>
+        <article class="work-card">
+          <div class="work-image rose">
+            <div class="cover">
+              <div class="cover-kicker">A celebration of community</div>
+              <h3>800<br><em>MEMBERS</em></h3>
+              <div class="cover-caption">One community.<br>One royal family.</div>
+            </div>
+          </div>
+          <div class="work-meta"><h3>Milestone</h3><span>Community poster</span></div>
+        </article>
+        <article class="work-card">
+          <div class="work-image sand">
+            <div class="cover">
+              <div class="cover-kicker">The pageant issue</div>
+              <h3>THE<br><em>CROWN</em><br>AWAITS</h3>
+              <div class="cover-caption">A new chapter<br>begins here</div>
+            </div>
+          </div>
+          <div class="work-meta"><h3>The Crown Awaits</h3><span>Event announcement</span></div>
+        </article>
+      </div>
+      <p class="note">Portfolio note: these are original typographic sample concepts created for this website, not commissioned client work. Replace or supplement them with your own finished designs as your portfolio grows.</p>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">What I can create</div><h2>Services</h2></div>
+          <p>Design support for communities and creators who want a clear, cohesive visual identity.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><div class="number">01 / EDITORIAL</div><h3>Magazines & newspapers</h3><p>Magazine covers, newspaper layouts, feature pages, and editorial announcements.</p></article>
+          <article class="service"><div class="number">02 / CAMPAIGNS</div><h3>Posters & announcements</h3><p>Event posters, staff applications, milestone graphics, and pageant promotions.</p></article>
+          <article class="service"><div class="number">03 / IDENTITY</div><h3>Community graphics</h3><p>Visual assets and coordinated graphics for Roblox groups and Discord communities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="about">
+      <div class="about-grid">
+        <div><div class="eyebrow">A little about the studio</div><h2>Small details.<br><em>Lasting impact.</em></h2></div>
+        <div class="about-copy">
+          <p><strong>Tymii Studio is an independent graphic design brand</strong> inspired by fashion editorials, print magazines, and the imaginative worlds built by online communities.</p>
+          <p>My approach is simple: balance expressive typography with clean composition, create a clear visual hierarchy, and make every design feel intentional.</p>
+          <p>This portfolio will grow with each new project. For now, the gallery features concept work that demonstrates the direction and style of the studio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow" style="color:#c6bcb0">Have a project in mind?</div>
+          <h2>Let’s make<br><em>something memorable.</em></h2>
+          <p>Looking for editorial graphics for your Roblox pageant, group, or Discord community? Send a message to discuss your idea, deadline, and requirements.</p>
+        </div>
+        <div>
+          <!-- Replace YOUR_DISCORD_USERNAME with your real username or YOUR_INVITE_CODE with a valid invite code. -->
+          <a class="button primary" href="https://discord.com/" target="_blank" rel="noopener noreferrer">Contact on Discord ↗</a>
+          <p style="font-size:10px;margin-top:14px">Before publishing, replace the Discord link with your profile or server invite.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="footer-brand">tymii studio</div>
+    <div>Independent design portfolio · 2026</div>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+</body>
+</html>
